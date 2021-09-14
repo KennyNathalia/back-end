@@ -1,5 +1,5 @@
 <?php
-	require "config.php";
+	include "config.php";
 
 	function create(){
 		$conn = connection();

@@ -5,13 +5,12 @@
         $password = "mysql";
         $database = "todo_list";
 
-        //<!-- laad hier via php de juiste contentpagina in (vanuit de pages map) in. Welke geselecteerd moet worden kun je uit de URL halen (URL_Params).-->
 
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            //echo "Connected successfully";
             }
         catch(PDOException $e)
         {
@@ -19,5 +18,13 @@
         }
         return $conn;
 
-    };
+    }
+
+    function lists(){
+        $conn = connection();
+        $query = $conn->prepare("SELECT * FROM todo");
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
 ?> 
