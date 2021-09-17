@@ -2,6 +2,7 @@
 	include "config.php";
 
 	$result = lists();
+	$resultTasks = tasks();
 ?>
 
 <!DOCTYPE html>
@@ -26,12 +27,25 @@
 	 	 <?php foreach ($result as $list) { ?>
 	 	 	<a class="" href="update.php?id=<?php echo $list['id'] ?>"><?php echo $list['list_name'] ?></a>
 
-	 	 	<button type="button" class="btn btn-danger">
+	<button type="button" class="btn btn-secondary">
+		<h2>
+			<a href="addTask.php" class="text-white" style="text-decoration: none;">Add Task +</a>
+		</h2>
+	</button>
+
+
+	<button type="button" class="btn btn-danger">
 		<h2>
 			<a href="deleteList.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
 		</h2>
 	</button>
 	 	 <?php } ?>
+
+	 	<?php foreach ($resultTasks as $task) { ?>
+	 		<p><?php echo $task['taskName'] ?></p>
+		<?php } ?>
+
+
 	 </div>
 
 	 <?php include "footer.php";?>

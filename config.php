@@ -27,4 +27,20 @@
         $result = $query->fetchAll();
         return $result;
     }
+
+    function tasks(){
+        $conn = connection();
+        $query = $conn->prepare("SELECT * FROM tasks");
+        $query->execute();
+        $resultTasks = $query->fetchAll();
+        return $resultTasks;
+    }
+
+    function listById($id){
+        $conn = connection();
+        $query = $conn->prepare("SELECT * FROM todo WHERE id = :id");
+        $query->execute([":id"=>$id]);
+        return $query->fetch();
+    }
+
 ?> 
