@@ -16,11 +16,18 @@
   			<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 		</svg>
 	</a>
+
 		<form name="create" method="post" action="createTask.php">
+			<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 			<div class="form-group d-flex justify-content-center">
 				<label for="">Task name</label>
 				<input class="form-control w-50 " type="text" name="name" placeholder="Task name" required><br>
 			</div>
+
+			<div class="form-group d-flex justify-content-center">
+				<label for="">Description</label>
+				<input class="form-control w-50 " type="text" name="description" placeholder="Description" required><br>
+			</div>	
 			<input type="submit" class="btn btn-info">
 		</form>
 
