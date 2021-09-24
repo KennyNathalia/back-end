@@ -43,4 +43,10 @@
         return $query->fetch();
     }
 
+    function taskById($id){
+        $conn = connection();
+        $query = $conn->prepare("SELECT * FROM tasks WHERE id = :id");
+        $query->execute([":id"=>$id]);
+        return $query->fetch();
+    }
 ?> 
