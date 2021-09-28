@@ -27,10 +27,16 @@
 			<div class="form-group d-flex justify-content-center">
 				<label for="">Description</label>
 				<input class="form-control w-50 " type="text" name="description" placeholder="Description" required><br>
-			</div>	
+			</div>
+
+			<!-- <div class="form-group d-flex justify-content-center">
+				<label for="">Description</label>
+				<input class="form-control w-50 " type="text" name="status" placeholder="Description" required><br>
+			</div> -->
+
+
 			<input type="submit" class="btn btn-info">
 		</form>
 
-		<?php include "footer.php";?>
-</body>
+	</body>
 </html>

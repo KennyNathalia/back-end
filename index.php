@@ -24,39 +24,51 @@
 	</nav>
 	 <h2 class="text-center">Your lists</h2>
 	 <div id="lists">
-	 	<div class="w-100" style="background-color: #C3BFBE;">
-	 	 <?php foreach ($result as $list) { ?>
-	 	 	
-	 	 	<a class="" href="update.php?id=<?php echo $list['id'] ?>"><?php echo $list['list_name'] ?></a>
-
-
-			<button type="button" class="btn btn-secondary btn-lg">
-					<a href="addTask.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Add Task +</a>
-			</button>
-
-
-			<button type="button" class="btn btn-danger btn-lg">
-					<a href="deleteList.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
-			</button>
-
-	 	 <?php } ?>
-	 	</div>
+	 	<div class="w-100" >
+	 		<div class="list">
+		 	 <?php foreach ($result as $list) { ?>
+		 	 	
+		 	 	<a class="" href="update.php?id=<?php echo $list['id'] ?>"><?php echo $list['list_name'] ?></a>
 
 
 
-	 	<div class="mt-5">
-		 	 <?php foreach ($resultTasks as $task) { ?>
-		 	 	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>
 
-		 	 <button type="button" class="btn btn-danger btn-lg">
-					<a href="deleteTask.php?id=<?php echo $task['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
-			</button>
+				<button type="button" class="btn btn-secondary btn-lg">
+						<a href="addTask.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Add Task +</a>
+				</button>
 
+
+				<button type="button" class="btn btn-danger btn-lg">
+						<a href="deleteList.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
+				</button>
+
+				<?php foreach (tasks($list['id']) as $task) { ?>
+                <div class="task">
+                    <p><?php echo $task['taskName'] ?></p>
+                    <p><?php echo $task['description'] ?></p>
+
+                    <button type="button" class="btn btn-danger btn-lg">
+						<a href="deleteTask.php?id=<?php echo $task['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
+					</button>
+
+                </div>
+                <?php } ?>
+				
 
 		 	 <?php } ?>
+		 	</div>
+
+		 	 
+
+
 	 	</div>
+
+
+
+
+
 	 </div>
 
-	 <?php include "footer.php";?>
+	 
 </body>
 </html>
