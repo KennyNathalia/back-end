@@ -26,7 +26,7 @@
 
 			<div class="form-group d-flex justify-content-center">
 				<label for="">Description</label>
-				<input class="form-control w-50 " type="text" name="description" placeholder="Description" required><br>
+				<input class="form-control w-50 " type="text" name="description" placeholder="Description"><br>
 			</div>
 
 			<!-- <div class="form-group d-flex justify-content-center">

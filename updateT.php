@@ -30,16 +30,28 @@
 			</div>
 
 			<div class="form-group text-center">
+				<label class="mr-sm-2" for="name">Name</label>
 				<input class="form-control w-50 mx-auto" type="text" name="taskName" placeholder="Task name" value="<?php echo $task['taskName'] ?>" required>
 			</div>
 
 			<div class="form-group text-center">
-				<input class="form-control w-50 mx-auto" type="text" name="description" placeholder="Description" value="<?php echo $task['description'] ?>" required>
+				<label class="mr-sm-2" for="descriptionc">Description</label>
+				<input class="form-control w-50 mx-auto" type="text" name="description" placeholder="Description" value="<?php echo $task['description'] ?>">
 			</div>
+
+			<div class="form-group mb-1 text-center">
+		      <label class="" for="status">Status</label>
+		      <select class="custom-select w-25" id="color">
+		        <option selected>Choose a color</option>
+		        <option value="1">None</option>
+		        <option value="2">Green</option>
+		        <option value="3">Orange</option>
+		        <option value="4">Red</option>
+		      </select>
+		    </div>
 
 			<input type="submit" class="btn btn-info">
 		</form>
 
-	<?php include "footer.php";?>
 </body>
 </html>

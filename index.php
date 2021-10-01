@@ -2,7 +2,7 @@
 	include "config.php";
 
 	$result = lists();
-	$resultTasks = tasks();
+
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +24,11 @@
 	</nav>
 	 <h2 class="text-center">Your lists</h2>
 	 <div id="lists">
-	 	<div class="w-100" >
+	 	<div class="" >
 	 		<div class="list">
 		 	 <?php foreach ($result as $list) { ?>
 		 	 	
 		 	 	<a class="" href="update.php?id=<?php echo $list['id'] ?>"><?php echo $list['list_name'] ?></a>
-
-
-
 
 				<button type="button" class="btn btn-secondary btn-lg">
 						<a href="addTask.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Add Task +</a>
@@ -42,9 +39,10 @@
 						<a href="deleteList.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
 				</button>
 
-				<?php foreach (tasks($list['id']) as $task) { ?>
+				<?php foreach (taskByListId($list['id']) as $task) { ?>
                 <div class="task">
-                    <p><?php echo $task['taskName'] ?></p>
+                	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>
+
                     <p><?php echo $task['description'] ?></p>
 
                     <button type="button" class="btn btn-danger btn-lg">
@@ -53,20 +51,10 @@
 
                 </div>
                 <?php } ?>
-				
 
 		 	 <?php } ?>
 		 	</div>
-
-		 	 
-
-
 	 	</div>
-
-
-
-
-
 	 </div>
 
 	 

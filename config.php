@@ -28,13 +28,13 @@
         return $result;
     }
 
-    function tasks(){
-        $conn = connection();
-        $query = $conn->prepare("SELECT * FROM tasks");
-        $query->execute();
-        $resultTasks = $query->fetchAll();
-        return $resultTasks;
-    }
+    // function tasks(){
+    //     $conn = connection();
+    //     $query = $conn->prepare("SELECT * FROM tasks");
+    //     $query->execute();
+    //     $resultTasks = $query->fetchAll();
+    //     return $resultTasks;
+    // }
 
     function listById($id){
         $conn = connection();
@@ -43,10 +43,19 @@
         return $query->fetch();
     }
 
-    function taskById($id){
+    function taskById($id){ 
+        $conn = connection(); 
+        $query = $conn->prepare("SELECT * FROM tasks WHERE id = :id"); 
+        $query->execute([":id"=>$id]); 
+        return $query->fetch(); 
+    } 
+
+    function taskByListId($id){
         $conn = connection();
-        $query = $conn->prepare("SELECT * FROM tasks WHERE id = :id");
-        $query->execute([":id"=>$id]);
-        return $query->fetch();
+        $query = $conn->prepare("SELECT * FROM tasks WHERE list_id = :list_id");
+        $query->bindParam(":list_id", $id);
+        $query->execute();
+        $tasks = $query->fetchAll();
+        return $tasks;
     }
 ?> 
