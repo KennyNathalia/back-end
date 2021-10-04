@@ -13,6 +13,7 @@
 	<meta charset="utf-8">
 	<title>Update Task</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<?php include "header.php";?>
@@ -41,7 +42,7 @@
 
 			<div class="form-group mb-1 text-center">
 		      <label class="" for="status">Status</label>
-		      <select class="custom-select w-25" id="color">
+		      <select class="custom-select w-25" name="status" id="status">
 		        <option selected>Choose a color</option>
 		        <option value="1">None</option>
 		        <option value="2">Green</option>

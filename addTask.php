@@ -29,10 +29,17 @@
 				<input class="form-control w-50 " type="text" name="description" placeholder="Description"><br>
 			</div>
 
-			<!-- <div class="form-group d-flex justify-content-center">
-				<label for="">Description</label>
-				<input class="form-control w-50 " type="text" name="status" placeholder="Description" required><br>
-			</div> -->
+			<div class="form-group mb-1 text-center">
+		      <label class="" for="status">Status</label>
+		      <select class="custom-select form-control w-25" name="status" id="status">
+		        <option selected>Choose a color</option>
+		        <option value="1">None</option>
+		        <option value="2">Green</option>
+		        <option value="3">Orange</option>
+		        <option value="4">Red</option>
+		      </select>
+		    </div>
+
 
 
 			<input type="submit" class="btn btn-info">
