@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<title>Add task</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<h1 class="text-center bg-info pb-2">Add a task</h1>
@@ -30,13 +31,18 @@
 			</div>
 
 			<div class="form-group mb-1 text-center">
+			    	<label for="duration">Duration</label>
+			    	<input type="number" class="ml-auto mr-auto form-control w-25" name="duration" placeholder="Duration" min="0" max="1000000">
+			</div>
+
+			<div class="form-group mb-1 text-center">
 		      <label class="" for="status">Status</label>
-		      <select class="custom-select form-control w-25" name="status" id="status">
+		      <select class="ml-auto mr-auto form-control w-25" name="color" id="status">
 		        <option selected>Choose a color</option>
-		        <option value="1">None</option>
-		        <option value="2">Green</option>
-		        <option value="3">Orange</option>
-		        <option value="4">Red</option>
+		        <option value="None">None</option>
+		        <option value="green">Green</option>
+		        <option value="orange">Orange</option>
+		        <option value="red">Red</option>
 		      </select>
 		    </div>
 

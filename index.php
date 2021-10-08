@@ -3,6 +3,7 @@
 
 	$result = lists();
 
+	
 ?>
 
 <!DOCTYPE html>
@@ -45,6 +46,8 @@
                 	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>
 
                     <p><?php echo $task['description'] ?></p>
+                    <p>Tijd: <?php echo $task['duration'] ?> minuten</p>
+                    <p><?php echo $task['status'] ?></p>
 
                     <button type="button" class="btn btn-danger btn-lg">
 						<a href="deleteTask.php?id=<?php echo $task['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>

@@ -36,18 +36,23 @@
 			</div>
 
 			<div class="form-group text-center">
-				<label class="mr-sm-2" for="descriptionc">Description</label>
+				<label class="mr-sm-2" for="description">Description</label>
 				<input class="form-control w-50 mx-auto" type="text" name="description" placeholder="Description" value="<?php echo $task['description'] ?>">
 			</div>
 
 			<div class="form-group mb-1 text-center">
-		      <label class="" for="status">Status</label>
-		      <select class="custom-select w-25" name="status" id="status">
-		        <option selected>Choose a color</option>
-		        <option value="1">None</option>
-		        <option value="2">Green</option>
-		        <option value="3">Orange</option>
-		        <option value="4">Red</option>
+			    	<label for="duration">Duration</label>
+			    	<input type="number" class="ml-auto mr-auto form-control w-25" name="duration" placeholder="Duration" min="0" max="1000000">
+			</div>
+
+			<div class="form-group mb-1 text-center">
+		      <label class="mr-sm-2" for="status">Status</label>
+		      <select class="custom-select w-25" name="color" id="status">
+		        <option selected><?php echo $task['status'] ?></option>
+		        <option value="none">None</option>
+		        <option value="green">Green</option>
+		        <option value="orange">Orange</option>
+		        <option value="red">Red</option>
 		      </select>
 		    </div>
 
