@@ -23,7 +23,5 @@
 			</div>
 			<input type="submit" class="btn btn-info">
 		</form>
-
-		<?php include "footer.php";?>
 </body>
 </html>

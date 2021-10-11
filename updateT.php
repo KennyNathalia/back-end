@@ -35,19 +35,19 @@
 				<input class="form-control w-50 mx-auto" type="text" name="taskName" placeholder="Task name" value="<?php echo $task['taskName'] ?>" required>
 			</div>
 
-			<div class="form-group text-center">
+			<div class="form-group mb-1 text-center">
 				<label class="mr-sm-2" for="description">Description</label>
-				<input class="form-control w-50 mx-auto" type="text" name="description" placeholder="Description" value="<?php echo $task['description'] ?>">
+				<input class="ml-auto mr-auto form-control w-50" type="text" name="description" placeholder="Description" value="<?php echo $task['description'] ?>">
 			</div>
 
-			<div class="form-group mb-1 text-center">
+			<div class="form-group text-center">
 			    	<label for="duration">Duration</label>
-			    	<input type="number" class="ml-auto mr-auto form-control w-25" name="duration" placeholder="Duration" min="0" max="1000000">
+			    	<input type="number" class="ml-auto mr-auto form-control w-25" name="duration" placeholder="Duration" min="0" max="1000000" value="<?php echo $task['duration'] ?>">
 			</div>
 
 			<div class="form-group mb-1 text-center">
 		      <label class="mr-sm-2" for="status">Status</label>
-		      <select class="custom-select w-25" name="color" id="status">
+		      <select class="ml-auto mr-auto form-control w-25" name="color" id="status">
 		        <option selected><?php echo $task['status'] ?></option>
 		        <option value="none">None</option>
 		        <option value="green">Green</option>

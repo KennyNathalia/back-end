@@ -2,7 +2,6 @@
 	include "config.php";
 
 	$result = lists();
-
 	
 ?>
 
@@ -25,10 +24,11 @@
 
 	</nav>
 	 <h2 class="text-center">Your lists</h2>
-	 <div id="lists">
-	 	<div class="" >
-	 		<div class="list">
+	 <div id="lists" class="container">
+	 	<div class="">
+	 		<div class="list col">
 		 	 <?php foreach ($result as $list) { ?>
+
 		 	 	
 		 	 	<a class="" href="update.php?id=<?php echo $list['id'] ?>"><?php echo $list['list_name'] ?></a>
 
@@ -41,20 +41,46 @@
 						<a href="deleteList.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
 				</button>
 
+				<div class="row">
 				<?php foreach (taskByListId($list['id']) as $task) { ?>
-                <div class="task">
+                <div class="task col-4">
                 	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>
 
                     <p><?php echo $task['description'] ?></p>
                     <p>Tijd: <?php echo $task['duration'] ?> minuten</p>
-                    <p><?php echo $task['status'] ?></p>
+                    
+
+                   
 
                     <button type="button" class="btn btn-danger btn-lg">
 						<a href="deleteTask.php?id=<?php echo $task['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
 					</button>
 
+					<p><?php 
+                    	if($task["status"] == "green"){
+
+						echo '<section class="green">';
+										
+	        			} else if ($task["status"] == "orange"){
+							echo '<section class="orange">';
+										
+	        			} else if ($task["status"] == "red"){
+							echo '<section class="red">';
+						}
+										
+	        						
+						
+	        		 ?>
+                    	
+                    </p>
+
+                    <p class="btn btn-lg invisible"></p>
+
                 </div>
+
+
                 <?php } ?>
+            </div>
 
 		 	 <?php } ?>
 		 	</div>

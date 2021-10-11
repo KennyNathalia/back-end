@@ -20,14 +20,14 @@
 
 		<form name="create" method="post" action="createTask.php">
 			<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-			<div class="form-group d-flex justify-content-center">
+			<div class="form-group text-center">
 				<label for="">Task name</label>
-				<input class="form-control w-50 " type="text" name="name" placeholder="Task name" required><br>
+				<input class="ml-auto mr-auto form-control w-50 " type="text" name="name" placeholder="Task name" required><br>
 			</div>
 
-			<div class="form-group d-flex justify-content-center">
+			<div class="form-group text-center">
 				<label for="">Description</label>
-				<input class="form-control w-50 " type="text" name="description" placeholder="Description"><br>
+				<input class="ml-auto mr-auto form-control w-50 " type="text" name="description" placeholder="Description"><br>
 			</div>
 
 			<div class="form-group mb-1 text-center">
