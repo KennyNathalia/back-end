@@ -32,6 +32,8 @@
 		 	 	
 		 	 	<a class="" href="update.php?id=<?php echo $list['id'] ?>"><?php echo $list['list_name'] ?></a>
 
+		 	 	<div class="row ml-1">
+
 				<button type="button" class="btn btn-secondary btn-lg">
 						<a href="addTask.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Add Task +</a>
 				</button>
@@ -40,6 +42,20 @@
 				<button type="button" class="btn btn-danger btn-lg">
 						<a href="deleteList.php?id=<?php echo $list['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
 				</button>
+
+				<div class="dropdown ml-auto">
+				  	<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Filters
+				  	</button>
+				  	<?php foreach (taskByListId($list['id']) as $task) { ?>
+				  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    	<a class="dropdown-item" href="filterTask.php ?>">Duration (ascending)</a>
+				    	<a class="dropdown-item" href="#">Duration (descending)</a>
+				  	</div>
+					<?php } ?>
+				</div>
+
+			</div>
 
 				<div class="row">
 				<?php foreach (taskByListId($list['id']) as $task) { ?>
@@ -68,13 +84,12 @@
 							echo '<section class="red">';
 						}
 										
-	        						
-						
+	  	
 	        		 ?>
                     	
                     </p>
 
-                    <p class="btn btn-lg invisible"></p>
+                    <p class="btn invisible"></p>
 
                 </div>
 
@@ -87,6 +102,10 @@
 	 	</div>
 	 </div>
 
-	 
+
+
+
+	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 </html>

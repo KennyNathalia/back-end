@@ -32,7 +32,7 @@
 
 			<div class="form-group mb-1 text-center">
 			    	<label for="duration">Duration</label>
-			    	<input type="number" class="ml-auto mr-auto form-control w-25" name="duration" placeholder="Duration" min="0" max="1000000">
+			    	<input type="number" class="ml-auto mr-auto form-control w-25" name="duration" placeholder="Duration" min="0" max="1000000" required>
 			</div>
 
 			<div class="form-group mb-1 text-center">
