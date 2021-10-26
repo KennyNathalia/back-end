@@ -1,8 +1,14 @@
 <?php
 	include "config.php";
-
-	$result = lists();
+	require "filterTask.php";
 	
+	if ($_SERVER['REQUEST_METHOD'] == "POST"){
+		echo "gepost";
+		$result = sortDuration($_POST['sort']);
+	}else{
+		//echo "geget";
+		$result = lists();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -44,20 +50,21 @@
 				</button>
 
 				<div class="dropdown ml-auto">
-				  	<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Filters
-				  	</button>
-				  	<?php foreach (taskByListId($list['id']) as $task) { ?>
-				  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				    	<a class="dropdown-item" href="filterTask.php ?>">Duration (ascending)</a>
-				    	<a class="dropdown-item" href="#">Duration (descending)</a>
-				  	</div>
-					<?php } ?>
+
+					<form action="index.php" method="POST">
+	                  <label><b>Filter:</b></label>
+	                    <select name="sort">
+	                        <option value="ASC">Ascending</option> 
+	                  		<option value="DESC">Descending</option>
+	                    </select>
+	                  <input type="submit" value="update">
+               		</form>
+
 				</div>
 
 			</div>
 
-				<div class="row">
+			<div class="row">
 				<?php foreach (taskByListId($list['id']) as $task) { ?>
                 <div class="task col-4">
                 	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>
@@ -68,28 +75,26 @@
 
                    
 
-                    <button type="button" class="btn btn-danger btn-lg">
-						<a href="deleteTask.php?id=<?php echo $task['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
-					</button>
+                <button type="button" class="btn btn-danger btn-lg">
+					<a href="deleteTask.php?id=<?php echo $task['id'] ?>" class="text-white" style="text-decoration: none;">Delete</a>
+			    </button>
 
-					<p><?php 
-                    	if($task["status"] == "green"){
+				<p>
+				<?php 
+                    if($task["status"] == "green"){
 
 						echo '<section class="green">';
 										
-	        			} else if ($task["status"] == "orange"){
-							echo '<section class="orange">';
+	        		} else if ($task["status"] == "orange"){
+						echo '<section class="orange">';
 										
-	        			} else if ($task["status"] == "red"){
-							echo '<section class="red">';
-						}
-										
-	  	
-	        		 ?>
-                    	
-                    </p>
+	        		} else if ($task["status"] == "red"){
+						echo '<section class="red">';
+					}
+				?>
+                </p>
 
-                    <p class="btn invisible"></p>
+                <p class="btn invisible"></p>
 
                 </div>
 
@@ -105,7 +110,7 @@
 
 
 
-	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 </html>
