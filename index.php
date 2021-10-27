@@ -57,8 +57,9 @@
 	                    <select name="sort">
 	                        <option value="ASC">Duration Ascending</option> 
 	                  		<option value="DESC">Duration Descending</option>
-	                  		<option value="COLOR ASC">Color Ascending</option> 
-	                  		<option value="COLOR DESC">Color Descending</option>
+	                  		<option value="COLOR GREEN">Color green only</option> 
+	                  		<option value="COLOR ORANGE">Color orange only</option>
+	                  		<option value="COLOR RED">Color red only</option>
 	                    </select>
 	                  <input type="submit" value="update">
                		</form>
@@ -72,9 +73,10 @@
 				<?php
 				$test = taskByListId($list['id']);
 					if ($_SERVER['REQUEST_METHOD'] == "POST"){
-						$test = sortDuration($list['id']);
+						$test = sortFilter($list['id']);
 					}
-					foreach ($test as $task) { ?>  
+				
+				foreach ($test as $task) { ?>  
 				
                 <div class="task col-4">
                 	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>

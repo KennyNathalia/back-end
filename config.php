@@ -1,5 +1,6 @@
 <?php
     function connection(){
+        //database connection
         $servername = "localhost";
         $username = "root";
         $password = "mysql";
@@ -21,20 +22,13 @@
     }
 
     function lists(){
+        //gets all lists from the database
         $conn = connection();
         $query = $conn->prepare("SELECT * FROM todo");
         $query->execute();
         $result = $query->fetchAll();
         return $result;
     }
-
-    // function tasks(){
-    //     $conn = connection();
-    //     $query = $conn->prepare("SELECT * FROM tasks");
-    //     $query->execute();
-    //     $resultTasks = $query->fetchAll();
-    //     return $resultTasks;
-    // }
 
     function listById($id){
         $conn = connection();
@@ -51,6 +45,7 @@
     } 
 
     function taskByListId($id){
+        //gets all tasks from the database linked to a list
         $conn = connection();
         $query = $conn->prepare("SELECT * FROM tasks WHERE list_id = :list_id");
         $query->bindParam(":list_id", $id);

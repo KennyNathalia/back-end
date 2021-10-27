@@ -2,6 +2,7 @@
 	include "config.php";
 
 	function create(){
+		//creates a task
 		$conn = connection();
 		$query = $conn->prepare("INSERT INTO tasks (taskName, description, status, duration, list_id) VALUES (:taskName, :description, :status, :duration, :list_id)");
         $query->bindParam(":taskName", $_POST['name']);

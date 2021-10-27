@@ -2,6 +2,7 @@
 	include "config.php";
 
 	function update(){
+		//update the lists
 		$conn = connection();
 		$id = $_POST['id'];
         $query = $conn->prepare("UPDATE todo SET list_name = :list_name WHERE id = :id");
