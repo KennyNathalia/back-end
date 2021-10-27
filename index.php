@@ -4,7 +4,8 @@
 	
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		echo "gepost";
-		$result = sortDuration($_POST['sort']);
+		$result = lists();
+		//$list = sortDuration($_POST['sort']);
 	}else{
 		//echo "geget";
 		$result = lists();
@@ -54,8 +55,10 @@
 					<form action="index.php" method="POST">
 	                  <label><b>Filter:</b></label>
 	                    <select name="sort">
-	                        <option value="ASC">Ascending</option> 
-	                  		<option value="DESC">Descending</option>
+	                        <option value="ASC">Duration Ascending</option> 
+	                  		<option value="DESC">Duration Descending</option>
+	                  		<option value="COLOR ASC">Color Ascending</option> 
+	                  		<option value="COLOR DESC">Color Descending</option>
 	                    </select>
 	                  <input type="submit" value="update">
                		</form>
@@ -65,7 +68,14 @@
 			</div>
 
 			<div class="row">
-				<?php foreach (taskByListId($list['id']) as $task) { ?>
+
+				<?php
+				$test = taskByListId($list['id']);
+					if ($_SERVER['REQUEST_METHOD'] == "POST"){
+						$test = sortDuration($list['id']);
+					}
+					foreach ($test as $task) { ?>  
+				
                 <div class="task col-4">
                 	<a class="" href="updateT.php?id=<?php echo $task['id'] ?>"><?php echo $task['taskName'] ?></a>
 
