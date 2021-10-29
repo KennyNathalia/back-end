@@ -18,6 +18,7 @@
 		</svg>
 	</a>
 
+	<!-- form om een list te maken -->
 		<form name="create" method="post" action="createTask.php">
 			<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 			<div class="form-group text-center">

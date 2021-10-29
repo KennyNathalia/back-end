@@ -3,7 +3,7 @@
 	require "filterTask.php";
 	
 	if ($_SERVER['REQUEST_METHOD'] == "POST"){
-		echo "gepost";
+		//echo "gepost";
 		$result = lists();
 		//$list = sortDuration($_POST['sort']);
 	}else{
@@ -22,18 +22,20 @@
 </head>
 <body>
 	<?php include "header.php";?>
+	<!-- knop voor nieuwe lijst -->
 	<nav>
 		<div class="text-center">
 			<button type="button" class="btn btn-dark">
 				<h2><a href="addList.php" class="text-white" style="text-decoration: none;">New list</a></h2>
 			</button>
 		</div>
-
 	</nav>
+
 	 <h2 class="text-center">Your lists</h2>
 	 <div id="lists" class="container">
 	 	<div class="">
 	 		<div class="list col">
+	 		<!-- foreach die alle lijsten op het scherm toont -->
 		 	 <?php foreach ($result as $list) { ?>
 
 		 	 	
@@ -51,7 +53,7 @@
 				</button>
 
 				<div class="dropdown ml-auto">
-
+					<!-- form die de filter opties laat zien -->
 					<form action="index.php" method="POST">
 	                  <label><b>Filter:</b></label>
 	                    <select name="sort">
@@ -71,6 +73,7 @@
 			<div class="row">
 
 				<?php
+				// foreach die alle tasks laat zien
 				$test = taskByListId($list['id']);
 					if ($_SERVER['REQUEST_METHOD'] == "POST"){
 						$test = sortFilter($list['id']);
@@ -93,6 +96,7 @@
 
 				<p>
 				<?php 
+				// de kleuren
                     if($task["status"] == "green"){
 
 						echo '<section class="green">';

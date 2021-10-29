@@ -30,6 +30,7 @@
         return $result;
     }
 
+    //pakt list by id voor de update
     function listById($id){
         $conn = connection();
         $query = $conn->prepare("SELECT * FROM todo WHERE id = :id");
@@ -37,6 +38,8 @@
         return $query->fetch();
     }
 
+
+    //pakt task by id voor de update
     function taskById($id){ 
         $conn = connection(); 
         $query = $conn->prepare("SELECT * FROM tasks WHERE id = :id"); 
@@ -44,8 +47,9 @@
         return $query->fetch(); 
     } 
 
+
     function taskByListId($id){
-        //gets all tasks from the database linked to a list
+        //pakt de tasks by list_id zodat de de taken in de juiste lijsten komen
         $conn = connection();
         $query = $conn->prepare("SELECT * FROM tasks WHERE list_id = :list_id");
         $query->bindParam(":list_id", $id);
